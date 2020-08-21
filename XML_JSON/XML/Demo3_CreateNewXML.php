@@ -5,4 +5,5 @@ $root2 = $doc->createElement("CSS");
 $doc->appendChild($root);
 $root->appendChild($root2);
 echo htmlspecialchars($doc->c14n());
+// echo $doc->c14n()
 ?>

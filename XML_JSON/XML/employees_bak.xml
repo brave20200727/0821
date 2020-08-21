@@ -1,5 +1,3 @@
-﻿<?php
-$xmlString = <<<MultiLines
 <?xml version="1.0" encoding="UTF-8"?>
 <employees>
   <employee EmpType="Manager">
@@ -23,11 +21,3 @@ $xmlString = <<<MultiLines
     <firstName>Steven</firstName>
   </employee>
 </employees>
-MultiLines;
-
-$doc = new DOMDocument();  
-$doc->loadXML($xmlString); 
-header("Content-type: text/xml", true);
-// echo $doc->c14n();
-echo $doc->saveXML();
-?>

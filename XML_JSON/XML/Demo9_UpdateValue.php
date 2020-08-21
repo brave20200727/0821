@@ -11,6 +11,19 @@ $doc->loadXML($xmlString);
 $root = $doc->documentElement;
 $root->setAttribute("id", "001");
 
+$xpath = new DOMXPath($doc);
+$entries = $xpath->query("/employees/employee[1]");
+$entries[0]->setAttribute("id", "001");
+
+$entries = $xpath->query("/employees/employee[1]/lastName");
+$entries[0]->nodeValue = "Cashman2";
+
+$entries = $xpath->query("/employees/employee[1]/@id");
+$entries[0]->nodeValue = "002";
+
+$entries = $xpath->query("/employees/employee[1]/firstName");
+$entries[0]->parentNode->removeChild($entries[0]);
+
 header("Content-type: text/xml", true);
 echo $doc->saveXML();
 ?>
